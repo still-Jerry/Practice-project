@@ -7,3 +7,8 @@ C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 ку
 C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.csproj.GenerateResource.Cache
 C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.exe
 C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.pdb
+C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.Clients.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.Masters.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.MenuA.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.Main.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 3\Практика 3 курс\BeautySalon\obj\Debug\BeautySalon.Users.resources

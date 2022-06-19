@@ -16,7 +16,7 @@ namespace BeautySalon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Authorization());
+            Application.Run(new Main());
         }
     }
 }
