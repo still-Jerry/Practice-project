@@ -16,5 +16,40 @@ namespace BeautySalon
         {
             InitializeComponent();
         }
+
+        private void GoToMainForm_Click(object sender, EventArgs e)
+        {
+            Main Form = new Main();
+            this.Visible = false;
+            Form.ShowDialog();
+        }
+
+        private void GoToMastersForm_Click(object sender, EventArgs e)
+        {
+            Masters Form = new Masters();
+            this.Visible = false;
+            Form.ShowDialog();
+        }
+
+        private void GoToClientsForm_Click(object sender, EventArgs e)
+        {   
+            Clients Form = new Clients();
+            this.Visible = false;
+            Form.ShowDialog();
+        }
+
+        private void GoToUsersForm_Click(object sender, EventArgs e)
+        {
+            Users Form = new Users();
+            this.Visible = false;
+            Form.ShowDialog();
+        }
+
+        private void GoToAutorizationForm_Click(object sender, EventArgs e)
+        {
+            Authorization Form = new Authorization();
+            this.Visible = false;
+            Form.ShowDialog();
+        }
     }
 }

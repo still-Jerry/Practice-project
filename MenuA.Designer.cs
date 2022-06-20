@@ -28,85 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.GoToMainForm = new System.Windows.Forms.Button();
+            this.GoToClientsForm = new System.Windows.Forms.Button();
+            this.GoToAutorizationForm = new System.Windows.Forms.Button();
+            this.GoToMastersForm = new System.Windows.Forms.Button();
+            this.GoToUsersForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // GoToMainForm
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GoToMainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(12, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 36);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Запись";
-            this.button1.UseVisualStyleBackColor = false;
+            this.GoToMainForm.BackColor = System.Drawing.SystemColors.Control;
+            this.GoToMainForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.GoToMainForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GoToMainForm.Location = new System.Drawing.Point(12, 9);
+            this.GoToMainForm.Name = "GoToMainForm";
+            this.GoToMainForm.Size = new System.Drawing.Size(157, 36);
+            this.GoToMainForm.TabIndex = 0;
+            this.GoToMainForm.Text = "Запись";
+            this.GoToMainForm.UseVisualStyleBackColor = false;
+            this.GoToMainForm.Click += new System.EventHandler(this.GoToMainForm_Click);
             // 
-            // button2
+            // GoToClientsForm
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GoToClientsForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(12, 93);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 36);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Клиенты";
-            this.button2.UseVisualStyleBackColor = false;
+            this.GoToClientsForm.BackColor = System.Drawing.SystemColors.Control;
+            this.GoToClientsForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GoToClientsForm.Location = new System.Drawing.Point(12, 93);
+            this.GoToClientsForm.Name = "GoToClientsForm";
+            this.GoToClientsForm.Size = new System.Drawing.Size(157, 36);
+            this.GoToClientsForm.TabIndex = 1;
+            this.GoToClientsForm.Text = "Клиенты";
+            this.GoToClientsForm.UseVisualStyleBackColor = false;
+            this.GoToClientsForm.Click += new System.EventHandler(this.GoToClientsForm_Click);
             // 
-            // button4
+            // GoToAutorizationForm
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GoToAutorizationForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.Tan;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(12, 177);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(157, 47);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Реавторизация";
-            this.button4.UseVisualStyleBackColor = false;
+            this.GoToAutorizationForm.BackColor = System.Drawing.Color.Tan;
+            this.GoToAutorizationForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GoToAutorizationForm.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GoToAutorizationForm.ForeColor = System.Drawing.Color.Black;
+            this.GoToAutorizationForm.Location = new System.Drawing.Point(12, 177);
+            this.GoToAutorizationForm.Name = "GoToAutorizationForm";
+            this.GoToAutorizationForm.Size = new System.Drawing.Size(157, 47);
+            this.GoToAutorizationForm.TabIndex = 3;
+            this.GoToAutorizationForm.Text = "Реавторизация";
+            this.GoToAutorizationForm.UseVisualStyleBackColor = false;
+            this.GoToAutorizationForm.Click += new System.EventHandler(this.GoToAutorizationForm_Click);
             // 
-            // button5
+            // GoToMastersForm
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GoToMastersForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(12, 51);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(157, 36);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Мастера";
-            this.button5.UseVisualStyleBackColor = false;
+            this.GoToMastersForm.BackColor = System.Drawing.SystemColors.Control;
+            this.GoToMastersForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GoToMastersForm.Location = new System.Drawing.Point(12, 51);
+            this.GoToMastersForm.Name = "GoToMastersForm";
+            this.GoToMastersForm.Size = new System.Drawing.Size(157, 36);
+            this.GoToMastersForm.TabIndex = 4;
+            this.GoToMastersForm.Text = "Мастера";
+            this.GoToMastersForm.UseVisualStyleBackColor = false;
+            this.GoToMastersForm.Click += new System.EventHandler(this.GoToMastersForm_Click);
             // 
-            // button3
+            // GoToUsersForm
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GoToUsersForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(12, 135);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(157, 36);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Пользователи";
-            this.button3.UseVisualStyleBackColor = false;
+            this.GoToUsersForm.BackColor = System.Drawing.SystemColors.Control;
+            this.GoToUsersForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GoToUsersForm.Location = new System.Drawing.Point(12, 135);
+            this.GoToUsersForm.Name = "GoToUsersForm";
+            this.GoToUsersForm.Size = new System.Drawing.Size(157, 36);
+            this.GoToUsersForm.TabIndex = 2;
+            this.GoToUsersForm.Text = "Пользователи";
+            this.GoToUsersForm.UseVisualStyleBackColor = false;
+            this.GoToUsersForm.Click += new System.EventHandler(this.GoToUsersForm_Click);
             // 
             // MenuA
             // 
@@ -114,11 +119,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(182, 236);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.GoToMastersForm);
+            this.Controls.Add(this.GoToAutorizationForm);
+            this.Controls.Add(this.GoToUsersForm);
+            this.Controls.Add(this.GoToClientsForm);
+            this.Controls.Add(this.GoToMainForm);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -131,10 +136,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button GoToMainForm;
+        private System.Windows.Forms.Button GoToClientsForm;
+        private System.Windows.Forms.Button GoToAutorizationForm;
+        private System.Windows.Forms.Button GoToMastersForm;
+        private System.Windows.Forms.Button GoToUsersForm;
     }
 }

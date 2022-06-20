@@ -16,5 +16,18 @@ namespace BeautySalon
         {
             InitializeComponent();
         }
+
+        private void GoToMenuForm_Click(object sender, EventArgs e)
+        {
+            MenuA Form = new MenuA();
+            this.Visible = false;
+            Form.ShowDialog();
+        }
+
+        private void Clients_Load(object sender, EventArgs e)
+        {
+            WorkWithDB.UpdateBD("BeautySalon_db", "Client", dataGridViewClients);
+
+        }
     }
 }
