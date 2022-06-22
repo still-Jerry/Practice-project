@@ -26,8 +26,29 @@ namespace BeautySalon
 
         private void Clients_Load(object sender, EventArgs e)
         {
-            WorkWithDB.UpdateBD("BeautySalon_db", "Client", dataGridViewClients);
+            //WorkWithDB.CloseBD(WorkWithDB.UpdateBD("BeautySalon_db", "Client", dataGridViewClients));
+            WorkWithDB.UpdateBD("BeautySalon_db", "Сlient", dataGridViewClients);
+            dataGridViewClients.Columns[0].Visible = false;
+            dataGridViewClients.Columns[1].HeaderText = "Фамилия";
+            dataGridViewClients.Columns[2].HeaderText = "Имя";
+            dataGridViewClients.Columns[3].HeaderText = "Отчество";
+            dataGridViewClients.Columns[4].HeaderText = "Номер телефона";
+            dataGridViewClients.Columns[5].HeaderText = "Дата рождения";
 
+            if (Convert.ToBoolean(Authorization.ActiveUser["status"]))
+            {
+                AddB.Visible = true;
+                EditB.Visible = true;
+                DeleteB.Visible = true;
+                AdminSpace.Visible = true;
+            }
+            else {
+                AddB.Visible = false;
+                EditB.Visible = false;
+                DeleteB.Visible = false;
+                AdminSpace.Visible = false;
+
+            }
         }
     }
 }

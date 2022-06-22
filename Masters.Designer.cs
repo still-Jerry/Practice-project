@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridViewMaters = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.EditB = new System.Windows.Forms.Button();
+            this.AddB = new System.Windows.Forms.Button();
+            this.DeleteB = new System.Windows.Forms.Button();
             this.GoToMenuForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,54 +44,57 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AdminSpace = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaters)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.AdminSpace.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewMaters
             // 
+            this.dataGridViewMaters.AllowUserToAddRows = false;
+            this.dataGridViewMaters.AllowUserToDeleteRows = false;
             this.dataGridViewMaters.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMaters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaters.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMaters.Name = "dataGridViewMaters";
+            this.dataGridViewMaters.ReadOnly = true;
             this.dataGridViewMaters.Size = new System.Drawing.Size(738, 460);
             this.dataGridViewMaters.TabIndex = 0;
             // 
-            // button1
+            // EditB
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(6, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Редактировать";
-            this.button1.UseVisualStyleBackColor = false;
+            this.EditB.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.EditB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EditB.Location = new System.Drawing.Point(6, 4);
+            this.EditB.Name = "EditB";
+            this.EditB.Size = new System.Drawing.Size(145, 31);
+            this.EditB.TabIndex = 0;
+            this.EditB.Text = "Редактировать";
+            this.EditB.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // AddB
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(308, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 31);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Добавить";
-            this.button2.UseVisualStyleBackColor = false;
+            this.AddB.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.AddB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddB.Location = new System.Drawing.Point(308, 4);
+            this.AddB.Name = "AddB";
+            this.AddB.Size = new System.Drawing.Size(145, 31);
+            this.AddB.TabIndex = 1;
+            this.AddB.Text = "Добавить";
+            this.AddB.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // DeleteB
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(157, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 31);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = false;
+            this.DeleteB.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.DeleteB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeleteB.Location = new System.Drawing.Point(157, 4);
+            this.DeleteB.Name = "DeleteB";
+            this.DeleteB.Size = new System.Drawing.Size(145, 31);
+            this.DeleteB.TabIndex = 2;
+            this.DeleteB.Text = "Удалить";
+            this.DeleteB.UseVisualStyleBackColor = false;
             // 
             // GoToMenuForm
             // 
@@ -109,9 +112,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.GoToMenuForm);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.AddB);
+            this.panel1.Controls.Add(this.EditB);
+            this.panel1.Controls.Add(this.DeleteB);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 279);
             this.panel1.Name = "panel1";
@@ -219,25 +222,25 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
             this.dateTimePicker1.TabIndex = 10;
             // 
-            // groupBox2
+            // AdminSpace
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 320);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(738, 140);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
+            this.AdminSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.AdminSpace.Controls.Add(this.dateTimePicker1);
+            this.AdminSpace.Controls.Add(this.label5);
+            this.AdminSpace.Controls.Add(this.label4);
+            this.AdminSpace.Controls.Add(this.textBox4);
+            this.AdminSpace.Controls.Add(this.label3);
+            this.AdminSpace.Controls.Add(this.textBox3);
+            this.AdminSpace.Controls.Add(this.label2);
+            this.AdminSpace.Controls.Add(this.textBox2);
+            this.AdminSpace.Controls.Add(this.label1);
+            this.AdminSpace.Controls.Add(this.textBox1);
+            this.AdminSpace.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AdminSpace.Location = new System.Drawing.Point(0, 320);
+            this.AdminSpace.Name = "AdminSpace";
+            this.AdminSpace.Size = new System.Drawing.Size(738, 140);
+            this.AdminSpace.TabIndex = 3;
+            this.AdminSpace.TabStop = false;
             // 
             // Masters
             // 
@@ -245,7 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 460);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.AdminSpace);
             this.Controls.Add(this.dataGridViewMaters);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -256,8 +259,8 @@
             this.Load += new System.EventHandler(this.Masters_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaters)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.AdminSpace.ResumeLayout(false);
+            this.AdminSpace.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -265,9 +268,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewMaters;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button EditB;
+        private System.Windows.Forms.Button AddB;
+        private System.Windows.Forms.Button DeleteB;
         private System.Windows.Forms.Button GoToMenuForm;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
@@ -280,6 +283,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox AdminSpace;
     }
 }

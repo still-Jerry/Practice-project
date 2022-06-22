@@ -47,9 +47,24 @@ namespace BeautySalon
 
         private void GoToAutorizationForm_Click(object sender, EventArgs e)
         {
+            Authorization.ActiveUser.Clear();
             Authorization Form = new Authorization();
             this.Visible = false;
             Form.ShowDialog();
+        }
+
+        private void MenuA_Load(object sender, EventArgs e)
+        {
+            if (Convert.ToBoolean(Authorization.ActiveUser["status"]))
+            {
+                GoToUsersForm.Visible = true;
+               
+            }
+            else
+            {
+                GoToUsersForm.Visible = false;
+
+            }
         }
     }
 }

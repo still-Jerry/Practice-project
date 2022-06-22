@@ -28,38 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.EntranceB = new System.Windows.Forms.Button();
+            this.PasswordField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.UsersNameCb = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // button2
+            // EntranceB
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.EntranceB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(110, 268);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 31);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Вход";
-            this.button2.UseVisualStyleBackColor = false;
+            this.EntranceB.BackColor = System.Drawing.Color.SeaGreen;
+            this.EntranceB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.EntranceB.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EntranceB.ForeColor = System.Drawing.Color.White;
+            this.EntranceB.Location = new System.Drawing.Point(110, 268);
+            this.EntranceB.Name = "EntranceB";
+            this.EntranceB.Size = new System.Drawing.Size(130, 31);
+            this.EntranceB.TabIndex = 12;
+            this.EntranceB.Text = "Вход";
+            this.EntranceB.UseVisualStyleBackColor = false;
+            this.EntranceB.Click += new System.EventHandler(this.EntranceB_Click);
             // 
-            // textBox2
+            // PasswordField
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.PasswordField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(15, 218);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 27);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.PasswordField.Location = new System.Drawing.Point(15, 218);
+            this.PasswordField.Name = "PasswordField";
+            this.PasswordField.Size = new System.Drawing.Size(300, 27);
+            this.PasswordField.TabIndex = 11;
+            this.PasswordField.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -95,15 +96,16 @@
             this.label1.Text = "Пожалуйста,\r\nвойдите в систему\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // UsersNameCb
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.UsersNameCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 140);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(300, 26);
-            this.comboBox1.TabIndex = 13;
+            this.UsersNameCb.FormattingEnabled = true;
+            this.UsersNameCb.Location = new System.Drawing.Point(15, 140);
+            this.UsersNameCb.Name = "UsersNameCb";
+            this.UsersNameCb.Size = new System.Drawing.Size(300, 26);
+            this.UsersNameCb.TabIndex = 13;
+            this.UsersNameCb.SelectedIndexChanged += new System.EventHandler(this.UsersNameCb_SelectedIndexChanged);
             // 
             // Authorization
             // 
@@ -111,9 +113,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(334, 311);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.UsersNameCb);
+            this.Controls.Add(this.EntranceB);
+            this.Controls.Add(this.PasswordField);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -123,6 +125,7 @@
             this.Name = "Authorization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.Authorization_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,11 +133,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button EntranceB;
+        private System.Windows.Forms.TextBox PasswordField;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox UsersNameCb;
     }
 }

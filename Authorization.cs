@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace BeautySalon
 {
@@ -15,6 +16,43 @@ namespace BeautySalon
         public Authorization()
         {
             InitializeComponent();
+        }
+
+        public static Dictionary<string, string> ActiveUser = new Dictionary<string, string>();
+        DataTable VirtualTable = WorkWithDB.TakeFromBD("BeautySalon_db", "Users");
+
+        //public static Dictionary<string, string> ActiveUser = new Dictionary<string, string>();
+        private void Authorization_Load(object sender, EventArgs e)
+        {
+
+            UsersNameCb.DataSource = VirtualTable;
+            UsersNameCb.DisplayMember = "user_name";// столбец для отображения
+
+        }
+
+        private void UsersNameCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActiveUser.Clear();
+            int id = UsersNameCb.SelectedIndex;
+            ActiveUser.Add("user_name", Convert.ToString(VirtualTable.Rows[id][1]));
+            ActiveUser.Add("login_name",Convert.ToString(VirtualTable.Rows[id][2]));
+            ActiveUser.Add("passwd", Convert.ToString(VirtualTable.Rows[id][3]));
+            ActiveUser.Add("status", Convert.ToString(VirtualTable.Rows[id][4]));
+
+        }
+
+        private void EntranceB_Click(object sender, EventArgs e)
+        {
+            if (PasswordField.Text == ActiveUser["passwd"])
+            {
+                MenuA Form = new MenuA();
+                this.Visible = false;
+                Form.ShowDialog();
+            }
+            else {
+                MessageBox.Show("Пароль не совпадает.");
+                PasswordField.Text = "";
+            }
         }
     }
 }

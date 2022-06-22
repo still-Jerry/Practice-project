@@ -27,7 +27,27 @@ namespace BeautySalon
         private void Users_Load(object sender, EventArgs e)
         {
             WorkWithDB.UpdateBD("BeautySalon_db", "Users", dataGridViewUsers);
+            dataGridViewUsers.Columns[0].Visible = false;
+            dataGridViewUsers.Columns[1].HeaderText = "Имя";
+            dataGridViewUsers.Columns[2].HeaderText = "Логин";
+            dataGridViewUsers.Columns[3].HeaderText = "Пароль";
+            dataGridViewUsers.Columns[4].HeaderText = "Статус";
+           
+            if (Convert.ToBoolean(Authorization.ActiveUser["status"]))
+            {
+                AddB.Visible = true;
+                EditB.Visible = true;
+                DeleteB.Visible = true;
+                AdminSpace.Visible = true;
+            }
+            else
+            {
+                AddB.Visible = false;
+                EditB.Visible = false;
+                DeleteB.Visible = false;
+                AdminSpace.Visible = false;
 
+            }
         }
     }
 }
