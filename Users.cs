@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace BeautySalon
 {
@@ -48,6 +49,38 @@ namespace BeautySalon
                 AdminSpace.Visible = false;
 
             }
+        }
+
+        private void AddB_Click(object sender, EventArgs e)
+        {
+
+            if (PasswordField.Text == "" || LoginField.Text == "" || NameField.Text == "")
+            {
+                MessageBox.Show("Заполните все пустые поля!");
+
+            }
+                //Проверка на наличеи схожего имени или логина
+            //else if ((Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) <= 13) || (Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) >= 150))
+            //{
+            //    MessageBox.Show("Только лица старше 13 и не старше 150 лет.");
+
+            //}
+            else
+            {
+                OleDbCommand sql = new OleDbCommand("INSERT INTO Users(id, user_name, login_name, passwd, status) VALUES (" +
+                         (dataGridViewUsers.RowCount + 1) + ", '" + NameField.Text + "' , '" + LoginField.Text + "', '" + PasswordField.Text + "', " +
+                           StatusCheck.Checked + ")");
+
+                WorkWithDB.FuncInBD("BeautySalon_db", "Users", dataGridViewUsers, sql);
+                ClearFields();
+            }
+        }
+        private void ClearFields()
+        {
+            LoginField.Text = "";
+            PasswordField.Text = "";
+            NameField.Text = "";
+            StatusCheck.Checked = false;
         }
     }
 }

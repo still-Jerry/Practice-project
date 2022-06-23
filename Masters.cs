@@ -51,6 +51,60 @@ namespace BeautySalon
             }
         }
 
+
+ 
+ 
+        private void AddB_Click(object sender, EventArgs e)
+        {
+            if (SurnameField.Text == "" || NameField.Text == "" || PatronymicField.Text == "" || JobTitleField.Text == "" || WasBornPicker.Text==""){
+                MessageBox.Show("Заполните все пустые поля!");
+
+            }
+            else if ((Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) <= 13)|| (Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) >= 150))
+            {
+                MessageBox.Show("Только лица старше 13 и не старше 150 лет.");
+             
+            }
+            else { 
+               OleDbCommand sql = new OleDbCommand("INSERT INTO Master(id, surname, name_master, patronymic, was_born, job_title) VALUES (" +
+                        (dataGridViewMaters.RowCount + 1) + ", '" + SurnameField.Text + "' , '" + NameField.Text + "', '" + PatronymicField.Text + "', '" +
+                          WasBornPicker.Value + "', '" + JobTitleField.Text + "')");
+
+               WorkWithDB.FuncInBD("BeautySalon_db", "Master", dataGridViewMaters, sql);
+               ClearFields();
+            }
+        }
+        private void ClearFields() {
+            WasBornPicker.Value = DateTime.Today;
+            SurnameField.Text = "";
+            NameField.Text = "";
+            PatronymicField.Text = "";
+            JobTitleField.Text = "";
+        }
+
+        private void PatronymicField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void NameField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void SurnameField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+    
      
 
     }

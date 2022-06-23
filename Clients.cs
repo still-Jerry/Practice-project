@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace BeautySalon
 {
@@ -49,6 +50,70 @@ namespace BeautySalon
                 AdminSpace.Visible = false;
 
             }
+        }
+
+        private void SurnameField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void NameField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void PhoneNumberField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!Char.IsDigit(ch) && ch != 9)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PatronymicField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void AddB_Click(object sender, EventArgs e)
+        {
+            if (SurnameField.Text == "" || NameField.Text == "" || PatronymicField.Text == "" || PhoneNumberField.Text == "" || WasBornPicker.Text == "")
+            {
+                MessageBox.Show("Заполните все пустые поля!");
+
+            }
+            else if ((Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) <= 13) || (Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) >= 150))
+            {
+                MessageBox.Show("Только лица старше 13 и не старше 150 лет.");
+
+            }
+            else
+            {
+                OleDbCommand sql = new OleDbCommand("INSERT INTO Сlient(id, surname, name_client, patronymic, phone_number, was_born) VALUES (" +
+                         (dataGridViewClients.RowCount + 1) + ", '" + SurnameField.Text + "' , '" + NameField.Text + "', '" + PatronymicField.Text + "', " +
+                           Convert.ToInt64(PhoneNumberField.Text) + ", '" + WasBornPicker.Value + "')");
+
+                WorkWithDB.FuncInBD("BeautySalon_db", "Сlient", dataGridViewClients, sql);
+                ClearFields();
+            }
+        }
+        private void ClearFields()
+        {
+            WasBornPicker.Value = DateTime.Today;
+            SurnameField.Text = "";
+            NameField.Text = "";
+            PatronymicField.Text = "";
+            PhoneNumberField.Text = "";
         }
     }
 }

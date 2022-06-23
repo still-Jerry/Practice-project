@@ -83,7 +83,7 @@ namespace BeautySalon
                 return null;
             }
         }
-        public static OleDbConnection FuncInBD(string SourceName, string TibleName, DataGridView dataGridView, string ColumnNames, string FromObjects, OleDbCommand sql)
+        public static OleDbConnection FuncInBD(string SourceName, string TibleName, DataGridView dataGridView, OleDbCommand sql)
         {
             try
             {

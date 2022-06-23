@@ -34,15 +34,15 @@
             this.EditB = new System.Windows.Forms.Button();
             this.DeleteB = new System.Windows.Forms.Button();
             this.AdminSpace = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.MasterCb = new System.Windows.Forms.ComboBox();
+            this.ClientCb = new System.Windows.Forms.ComboBox();
+            this.TimeVisitPicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DateVisitPicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PriceField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -85,6 +85,7 @@
             this.AddB.TabIndex = 1;
             this.AddB.Text = "Добавить";
             this.AddB.UseVisualStyleBackColor = false;
+            this.AddB.Click += new System.EventHandler(this.AddB_Click);
             // 
             // EditB
             // 
@@ -111,15 +112,15 @@
             // AdminSpace
             // 
             this.AdminSpace.BackColor = System.Drawing.SystemColors.Control;
-            this.AdminSpace.Controls.Add(this.comboBox2);
-            this.AdminSpace.Controls.Add(this.comboBox1);
-            this.AdminSpace.Controls.Add(this.dateTimePicker2);
+            this.AdminSpace.Controls.Add(this.MasterCb);
+            this.AdminSpace.Controls.Add(this.ClientCb);
+            this.AdminSpace.Controls.Add(this.TimeVisitPicker);
             this.AdminSpace.Controls.Add(this.label6);
-            this.AdminSpace.Controls.Add(this.dateTimePicker1);
+            this.AdminSpace.Controls.Add(this.DateVisitPicker);
             this.AdminSpace.Controls.Add(this.label5);
             this.AdminSpace.Controls.Add(this.label3);
             this.AdminSpace.Controls.Add(this.label2);
-            this.AdminSpace.Controls.Add(this.textBox2);
+            this.AdminSpace.Controls.Add(this.PriceField);
             this.AdminSpace.Controls.Add(this.label1);
             this.AdminSpace.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.AdminSpace.Location = new System.Drawing.Point(0, 320);
@@ -128,30 +129,30 @@
             this.AdminSpace.TabIndex = 7;
             this.AdminSpace.TabStop = false;
             // 
-            // comboBox2
+            // MasterCb
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(294, 39);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 26);
-            this.comboBox2.TabIndex = 14;
+            this.MasterCb.FormattingEnabled = true;
+            this.MasterCb.Location = new System.Drawing.Point(294, 39);
+            this.MasterCb.Name = "MasterCb";
+            this.MasterCb.Size = new System.Drawing.Size(200, 26);
+            this.MasterCb.TabIndex = 14;
             // 
-            // comboBox1
+            // ClientCb
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(532, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 26);
-            this.comboBox1.TabIndex = 13;
+            this.ClientCb.FormattingEnabled = true;
+            this.ClientCb.Location = new System.Drawing.Point(532, 39);
+            this.ClientCb.Name = "ClientCb";
+            this.ClientCb.Size = new System.Drawing.Size(200, 26);
+            this.ClientCb.TabIndex = 13;
             // 
-            // dateTimePicker2
+            // TimeVisitPicker
             // 
-            this.dateTimePicker2.CustomFormat = "hh:mm:ss";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(6, 108);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker2.TabIndex = 12;
+            this.TimeVisitPicker.CustomFormat = "hh:mm:ss";
+            this.TimeVisitPicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.TimeVisitPicker.Location = new System.Drawing.Point(6, 108);
+            this.TimeVisitPicker.Name = "TimeVisitPicker";
+            this.TimeVisitPicker.Size = new System.Drawing.Size(200, 27);
+            this.TimeVisitPicker.TabIndex = 12;
             // 
             // label6
             // 
@@ -163,14 +164,14 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Время";
             // 
-            // dateTimePicker1
+            // DateVisitPicker
             // 
-            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker1.TabIndex = 10;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 6, 20, 2, 14, 0, 0);
+            this.DateVisitPicker.CustomFormat = "MM/dd/yyyy";
+            this.DateVisitPicker.Location = new System.Drawing.Point(6, 39);
+            this.DateVisitPicker.Name = "DateVisitPicker";
+            this.DateVisitPicker.Size = new System.Drawing.Size(200, 27);
+            this.DateVisitPicker.TabIndex = 10;
+            this.DateVisitPicker.Value = new System.DateTime(2022, 6, 20, 2, 14, 0, 0);
             // 
             // label5
             // 
@@ -206,14 +207,16 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Стоимость";
             // 
-            // textBox2
+            // PriceField
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PriceField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(294, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 27);
-            this.textBox2.TabIndex = 2;
+            this.PriceField.Location = new System.Drawing.Point(294, 108);
+            this.PriceField.MaxLength = 12;
+            this.PriceField.Name = "PriceField";
+            this.PriceField.Size = new System.Drawing.Size(200, 27);
+            this.PriceField.TabIndex = 2;
+            this.PriceField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PriceField_KeyPress);
             // 
             // label1
             // 
@@ -270,16 +273,16 @@
         private System.Windows.Forms.Button EditB;
         private System.Windows.Forms.Button DeleteB;
         private System.Windows.Forms.GroupBox AdminSpace;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DateVisitPicker;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox PriceField;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewMain;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker TimeVisitPicker;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox MasterCb;
+        private System.Windows.Forms.ComboBox ClientCb;
     }
 }

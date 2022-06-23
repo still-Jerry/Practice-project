@@ -34,16 +34,16 @@
             this.DeleteB = new System.Windows.Forms.Button();
             this.GoToMenuForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SurnameField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.NameField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.PatronymicField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.JobTitleField = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.WasBornPicker = new System.Windows.Forms.DateTimePicker();
             this.AdminSpace = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaters)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,6 +84,7 @@
             this.AddB.TabIndex = 1;
             this.AddB.Text = "Добавить";
             this.AddB.UseVisualStyleBackColor = false;
+            this.AddB.Click += new System.EventHandler(this.AddB_Click);
             // 
             // DeleteB
             // 
@@ -121,14 +122,16 @@
             this.panel1.Size = new System.Drawing.Size(738, 41);
             this.panel1.TabIndex = 5;
             // 
-            // textBox1
+            // SurnameField
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.SurnameField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(294, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 27);
-            this.textBox1.TabIndex = 0;
+            this.SurnameField.Location = new System.Drawing.Point(294, 39);
+            this.SurnameField.MaxLength = 70;
+            this.SurnameField.Name = "SurnameField";
+            this.SurnameField.Size = new System.Drawing.Size(200, 27);
+            this.SurnameField.TabIndex = 0;
+            this.SurnameField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SurnameField_KeyPress);
             // 
             // label1
             // 
@@ -142,14 +145,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Фамилия";
             // 
-            // textBox2
+            // NameField
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.NameField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(294, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 27);
-            this.textBox2.TabIndex = 2;
+            this.NameField.Location = new System.Drawing.Point(294, 108);
+            this.NameField.MaxLength = 35;
+            this.NameField.Name = "NameField";
+            this.NameField.Size = new System.Drawing.Size(200, 27);
+            this.NameField.TabIndex = 2;
+            this.NameField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameField_KeyPress);
             // 
             // label2
             // 
@@ -163,14 +168,16 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Имя";
             // 
-            // textBox3
+            // PatronymicField
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PatronymicField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(532, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 27);
-            this.textBox3.TabIndex = 4;
+            this.PatronymicField.Location = new System.Drawing.Point(532, 39);
+            this.PatronymicField.MaxLength = 35;
+            this.PatronymicField.Name = "PatronymicField";
+            this.PatronymicField.Size = new System.Drawing.Size(200, 27);
+            this.PatronymicField.TabIndex = 4;
+            this.PatronymicField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatronymicField_KeyPress);
             // 
             // label3
             // 
@@ -184,14 +191,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Отчество";
             // 
-            // textBox4
+            // JobTitleField
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.JobTitleField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(532, 109);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 27);
-            this.textBox4.TabIndex = 6;
+            this.JobTitleField.Location = new System.Drawing.Point(532, 109);
+            this.JobTitleField.MaxLength = 255;
+            this.JobTitleField.Name = "JobTitleField";
+            this.JobTitleField.Size = new System.Drawing.Size(200, 27);
+            this.JobTitleField.TabIndex = 6;
             // 
             // label4
             // 
@@ -215,26 +223,27 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Дата рождения";
             // 
-            // dateTimePicker1
+            // WasBornPicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker1.TabIndex = 10;
+            this.WasBornPicker.Location = new System.Drawing.Point(6, 39);
+            this.WasBornPicker.Name = "WasBornPicker";
+            this.WasBornPicker.Size = new System.Drawing.Size(200, 27);
+            this.WasBornPicker.TabIndex = 10;
+            this.WasBornPicker.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // AdminSpace
             // 
             this.AdminSpace.BackColor = System.Drawing.SystemColors.Control;
-            this.AdminSpace.Controls.Add(this.dateTimePicker1);
+            this.AdminSpace.Controls.Add(this.WasBornPicker);
             this.AdminSpace.Controls.Add(this.label5);
             this.AdminSpace.Controls.Add(this.label4);
-            this.AdminSpace.Controls.Add(this.textBox4);
+            this.AdminSpace.Controls.Add(this.JobTitleField);
             this.AdminSpace.Controls.Add(this.label3);
-            this.AdminSpace.Controls.Add(this.textBox3);
+            this.AdminSpace.Controls.Add(this.PatronymicField);
             this.AdminSpace.Controls.Add(this.label2);
-            this.AdminSpace.Controls.Add(this.textBox2);
+            this.AdminSpace.Controls.Add(this.NameField);
             this.AdminSpace.Controls.Add(this.label1);
-            this.AdminSpace.Controls.Add(this.textBox1);
+            this.AdminSpace.Controls.Add(this.SurnameField);
             this.AdminSpace.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.AdminSpace.Location = new System.Drawing.Point(0, 320);
             this.AdminSpace.Name = "AdminSpace";
@@ -273,16 +282,16 @@
         private System.Windows.Forms.Button DeleteB;
         private System.Windows.Forms.Button GoToMenuForm;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox SurnameField;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NameField;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PatronymicField;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox JobTitleField;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker WasBornPicker;
         private System.Windows.Forms.GroupBox AdminSpace;
     }
 }

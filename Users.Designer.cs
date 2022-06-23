@@ -34,14 +34,14 @@
             this.EditB = new System.Windows.Forms.Button();
             this.DeleteB = new System.Windows.Forms.Button();
             this.AdminSpace = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.StatusCheck = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.LoginField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.PasswordField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NameField = new System.Windows.Forms.TextBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.AdminSpace.SuspendLayout();
@@ -83,6 +83,7 @@
             this.AddB.TabIndex = 1;
             this.AddB.Text = "Добавить";
             this.AddB.UseVisualStyleBackColor = false;
+            this.AddB.Click += new System.EventHandler(this.AddB_Click);
             // 
             // EditB
             // 
@@ -109,14 +110,14 @@
             // AdminSpace
             // 
             this.AdminSpace.BackColor = System.Drawing.SystemColors.Control;
-            this.AdminSpace.Controls.Add(this.checkBox1);
+            this.AdminSpace.Controls.Add(this.StatusCheck);
             this.AdminSpace.Controls.Add(this.button5);
             this.AdminSpace.Controls.Add(this.label4);
-            this.AdminSpace.Controls.Add(this.textBox4);
+            this.AdminSpace.Controls.Add(this.LoginField);
             this.AdminSpace.Controls.Add(this.label3);
-            this.AdminSpace.Controls.Add(this.textBox3);
+            this.AdminSpace.Controls.Add(this.PasswordField);
             this.AdminSpace.Controls.Add(this.label1);
-            this.AdminSpace.Controls.Add(this.textBox1);
+            this.AdminSpace.Controls.Add(this.NameField);
             this.AdminSpace.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.AdminSpace.Location = new System.Drawing.Point(0, 320);
             this.AdminSpace.Name = "AdminSpace";
@@ -124,15 +125,15 @@
             this.AdminSpace.TabIndex = 7;
             this.AdminSpace.TabStop = false;
             // 
-            // checkBox1
+            // StatusCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 104);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(220, 22);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Статус администратора";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.StatusCheck.AutoSize = true;
+            this.StatusCheck.Location = new System.Drawing.Point(9, 104);
+            this.StatusCheck.Name = "StatusCheck";
+            this.StatusCheck.Size = new System.Drawing.Size(220, 22);
+            this.StatusCheck.TabIndex = 12;
+            this.StatusCheck.Text = "Статус администратора";
+            this.StatusCheck.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -158,14 +159,15 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Имя";
             // 
-            // textBox4
+            // LoginField
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.LoginField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(272, 39);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 27);
-            this.textBox4.TabIndex = 6;
+            this.LoginField.Location = new System.Drawing.Point(272, 39);
+            this.LoginField.MaxLength = 70;
+            this.LoginField.Name = "LoginField";
+            this.LoginField.Size = new System.Drawing.Size(200, 27);
+            this.LoginField.TabIndex = 6;
             // 
             // label3
             // 
@@ -179,14 +181,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Логин";
             // 
-            // textBox3
+            // PasswordField
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PasswordField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(523, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 27);
-            this.textBox3.TabIndex = 4;
+            this.PasswordField.Location = new System.Drawing.Point(523, 39);
+            this.PasswordField.MaxLength = 30;
+            this.PasswordField.Name = "PasswordField";
+            this.PasswordField.Size = new System.Drawing.Size(209, 27);
+            this.PasswordField.TabIndex = 4;
             // 
             // label1
             // 
@@ -200,14 +203,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Пароль";
             // 
-            // textBox1
+            // NameField
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.NameField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(9, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 27);
-            this.textBox1.TabIndex = 0;
+            this.NameField.Location = new System.Drawing.Point(9, 39);
+            this.NameField.MaxLength = 150;
+            this.NameField.Name = "NameField";
+            this.NameField.Size = new System.Drawing.Size(206, 27);
+            this.NameField.TabIndex = 0;
             // 
             // dataGridViewUsers
             // 
@@ -254,13 +258,13 @@
         private System.Windows.Forms.Button DeleteB;
         private System.Windows.Forms.GroupBox AdminSpace;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox LoginField;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PasswordField;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NameField;
         private System.Windows.Forms.DataGridView dataGridViewUsers;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox StatusCheck;
         private System.Windows.Forms.Button button5;
     }
 }
