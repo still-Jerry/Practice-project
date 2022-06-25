@@ -27,7 +27,7 @@ namespace BeautySalon
 
             UsersNameCb.DataSource = VirtualTable;
             UsersNameCb.DisplayMember = "user_name";// столбец для отображения
-
+            UsersNameCb.Text = "";
         }
 
         private void UsersNameCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,13 +43,19 @@ namespace BeautySalon
 
         private void EntranceB_Click(object sender, EventArgs e)
         {
-            if (PasswordField.Text == ActiveUser["passwd"])
+            if (PasswordField.Text == String.Empty || UsersNameCb.Text == String.Empty)
+            {
+                MessageBox.Show("Заполните все поля.");
+            
+            }
+            else if (PasswordField.Text == ActiveUser["passwd"] && UsersNameCb.Text == ActiveUser["user_name"])
             {
                 MenuA Form = new MenuA();
                 this.Visible = false;
                 Form.ShowDialog();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Пароль не совпадает.");
                 PasswordField.Text = "";
             }

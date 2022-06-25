@@ -91,7 +91,7 @@ namespace BeautySalon
                 sql.Connection = Connectdb;
                 sql.ExecuteNonQuery();
                 Connectdb.Close();
-                MessageBox.Show("Информация изменена.");
+                //MessageBox.Show("Информация изменена.");
                 return UpdateBD(SourceName, TibleName, dataGridView);
             }
             catch (Exception ex)

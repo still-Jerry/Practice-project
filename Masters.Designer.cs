@@ -62,6 +62,7 @@
             this.dataGridViewMaters.ReadOnly = true;
             this.dataGridViewMaters.Size = new System.Drawing.Size(738, 460);
             this.dataGridViewMaters.TabIndex = 0;
+            this.dataGridViewMaters.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewMaters_MouseClick);
             // 
             // EditB
             // 
@@ -73,6 +74,7 @@
             this.EditB.TabIndex = 0;
             this.EditB.Text = "Редактировать";
             this.EditB.UseVisualStyleBackColor = false;
+            this.EditB.Click += new System.EventHandler(this.EditB_Click);
             // 
             // AddB
             // 
@@ -96,6 +98,7 @@
             this.DeleteB.TabIndex = 2;
             this.DeleteB.Text = "Удалить";
             this.DeleteB.UseVisualStyleBackColor = false;
+            this.DeleteB.Click += new System.EventHandler(this.DeleteB_Click);
             // 
             // GoToMenuForm
             // 
@@ -226,10 +229,12 @@
             // WasBornPicker
             // 
             this.WasBornPicker.Location = new System.Drawing.Point(6, 39);
+            this.WasBornPicker.MaxDate = new System.DateTime(2022, 6, 26, 0, 0, 0, 0);
+            this.WasBornPicker.MinDate = new System.DateTime(1870, 1, 1, 0, 0, 0, 0);
             this.WasBornPicker.Name = "WasBornPicker";
             this.WasBornPicker.Size = new System.Drawing.Size(200, 27);
             this.WasBornPicker.TabIndex = 10;
-            this.WasBornPicker.Value = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.WasBornPicker.Value = new System.DateTime(1890, 1, 1, 0, 0, 0, 0);
             // 
             // AdminSpace
             // 

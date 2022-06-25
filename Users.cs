@@ -13,6 +13,8 @@ namespace BeautySalon
 {
     public partial class Users : Form
     {
+        Boolean CanEdit = false;
+        Int32 idDataGrid;
         public Users()
         {
             InitializeComponent();
@@ -33,13 +35,15 @@ namespace BeautySalon
             dataGridViewUsers.Columns[2].HeaderText = "Логин";
             dataGridViewUsers.Columns[3].HeaderText = "Пароль";
             dataGridViewUsers.Columns[4].HeaderText = "Статус";
-           
+            ClearFields();
             if (Convert.ToBoolean(Authorization.ActiveUser["status"]))
             {
                 AddB.Visible = true;
                 EditB.Visible = true;
                 DeleteB.Visible = true;
                 AdminSpace.Visible = true;
+                dataGridViewUsers.Dock = DockStyle.None;
+
             }
             else
             {
@@ -47,6 +51,8 @@ namespace BeautySalon
                 EditB.Visible = false;
                 DeleteB.Visible = false;
                 AdminSpace.Visible = false;
+                dataGridViewUsers.Dock = DockStyle.Fill;
+
 
             }
         }
@@ -54,33 +60,119 @@ namespace BeautySalon
         private void AddB_Click(object sender, EventArgs e)
         {
 
-            if (PasswordField.Text == "" || LoginField.Text == "" || NameField.Text == "")
+            try
             {
-                MessageBox.Show("Заполните все пустые поля!");
+                //Проверка на наличеи схожего имени или логина и кол во символов в пароле
+                //else if ((Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) <= 13) || (Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) >= 150))
+                //{
+                //    MessageBox.Show("Только лица старше 13 и не старше 150 лет.");
 
+                //}
+                if (CheckInaccuracies())
+                {
+                    OleDbCommand sql = new OleDbCommand("INSERT INTO Users(id, user_name, login_name, passwd, status) VALUES (" +
+                             (Convert.ToInt32(dataGridViewUsers[0, dataGridViewUsers.RowCount - 1].Value) + 1) + ", '" + NameField.Text + "' , '" + LoginField.Text + "', '" + PasswordField.Text + "', " +
+                               StatusCheck.Checked + ")");
+
+                    WorkWithDB.FuncInBD("BeautySalon_db", "Users", dataGridViewUsers, sql);
+                    ClearFields();
+                }
             }
-                //Проверка на наличеи схожего имени или логина
-            //else if ((Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) <= 13) || (Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) >= 150))
-            //{
-            //    MessageBox.Show("Только лица старше 13 и не старше 150 лет.");
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
 
-            //}
-            else
-            {
-                OleDbCommand sql = new OleDbCommand("INSERT INTO Users(id, user_name, login_name, passwd, status) VALUES (" +
-                         (dataGridViewUsers.RowCount + 1) + ", '" + NameField.Text + "' , '" + LoginField.Text + "', '" + PasswordField.Text + "', " +
-                           StatusCheck.Checked + ")");
-
-                WorkWithDB.FuncInBD("BeautySalon_db", "Users", dataGridViewUsers, sql);
-                ClearFields();
             }
         }
+
         private void ClearFields()
         {
             LoginField.Text = "";
             PasswordField.Text = "";
             NameField.Text = "";
             StatusCheck.Checked = false;
+        }
+
+        private Boolean CheckInaccuracies()
+        {
+            if (PasswordField.Text == "" || LoginField.Text == "" || NameField.Text == "")
+            {
+                MessageBox.Show("Заполните все пустые поля!");
+                return false;
+            }
+            else if (PasswordField.Text.Length < 3 || LoginField.Text.Length < 3 || NameField.Text.Length < 3)
+            {
+                MessageBox.Show("Минимальное количество символов,  в заполняемых полях, =3.");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void EditB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!CanEdit)
+                {
+                    MessageBox.Show("Редактируемая строка не выбрана.");
+                  
+                }
+                else if (CheckInaccuracies())
+                {
+
+                    OleDbCommand sql = new OleDbCommand("UPDATE Users SET user_name='" + NameField.Text +
+                          "', login_name='" + LoginField.Text + "', passwd='" + PasswordField.Text +
+                          "', status=" + StatusCheck.Checked  + " Where id=" + idDataGrid + ";");
+
+                    WorkWithDB.FuncInBD("BeautySalon_db", "Users", dataGridViewUsers, sql);
+                    ClearFields();
+                    CanEdit = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void dataGridViewUsers_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            try
+            {
+                NameField.Text = Convert.ToString(dataGridViewUsers.SelectedRows[0].Cells[1].Value);
+                LoginField.Text = Convert.ToString(dataGridViewUsers.SelectedRows[0].Cells[2].Value);
+                PasswordField.Text = Convert.ToString(dataGridViewUsers.SelectedRows[0].Cells[3].Value);
+                idDataGrid = Convert.ToInt32(Convert.ToInt32(dataGridViewUsers.SelectedRows[0].Cells[0].Value));
+                CanEdit = true;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void DeleteB_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы действиетльно хотите безвозвратно удалить строку из БД?", "Сообщение пользователю", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    OleDbCommand sql = new OleDbCommand("DELETE FROM Users WHERE id=" + idDataGrid);
+                    WorkWithDB.FuncInBD("BeautySalon_db", "Users", dataGridViewUsers, sql);
+                    ClearFields();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

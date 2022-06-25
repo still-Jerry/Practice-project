@@ -95,6 +95,7 @@
             this.EditB.TabIndex = 0;
             this.EditB.Text = "Редактировать";
             this.EditB.UseVisualStyleBackColor = false;
+            this.EditB.Click += new System.EventHandler(this.EditB_Click);
             // 
             // DeleteB
             // 
@@ -106,6 +107,7 @@
             this.DeleteB.TabIndex = 2;
             this.DeleteB.Text = "Удалить";
             this.DeleteB.UseVisualStyleBackColor = false;
+            this.DeleteB.Click += new System.EventHandler(this.DeleteB_Click);
             // 
             // AdminSpace
             // 
@@ -225,6 +227,7 @@
             this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.Size = new System.Drawing.Size(738, 460);
             this.dataGridViewUsers.TabIndex = 6;
+            this.dataGridViewUsers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewUsers_MouseClick);
             // 
             // Users
             // 
