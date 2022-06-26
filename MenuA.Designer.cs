@@ -130,6 +130,7 @@
             this.Name = "MenuA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Меню";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuA_FormClosing);
             this.Load += new System.EventHandler(this.MenuA_Load);
             this.ResumeLayout(false);
 

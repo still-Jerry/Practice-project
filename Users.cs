@@ -62,17 +62,15 @@ namespace BeautySalon
 
             try
             {
-                //Проверка на наличеи схожего имени или логина и кол во символов в пароле
-                //else if ((Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) <= 13) || (Convert.ToInt32(DateTime.Today.Year) - Convert.ToInt32(WasBornPicker.Value.Year) >= 150))
-                //{
-                //    MessageBox.Show("Только лица старше 13 и не старше 150 лет.");
-
-                //}
-                if (CheckInaccuracies())
+                if (CheckInaccuracies() && CheckSameness(true))
                 {
+                    //OleDbCommand sql = new OleDbCommand("INSERT INTO Users(id, user_name, login_name, passwd, status) VALUES (" +
+                    //        (idDataGrid+3) + ", '" + NameField.Text + "', " + LoginField.Text + ", '" +
+                    //          PasswordField.Text + "', '" + StatusCheck.Checked + "')");
+
                     OleDbCommand sql = new OleDbCommand("INSERT INTO Users(id, user_name, login_name, passwd, status) VALUES (" +
-                             (Convert.ToInt32(dataGridViewUsers[0, dataGridViewUsers.RowCount - 1].Value) + 1) + ", '" + NameField.Text + "' , '" + LoginField.Text + "', '" + PasswordField.Text + "', " +
-                               StatusCheck.Checked + ")");
+                             (Module.GetNewIndex(dataGridViewUsers)) + ", '" + NameField.Text + "' , '" + LoginField.Text + "', '" + PasswordField.Text + "', " +
+                               StatusCheck.Checked + ");");
 
                     WorkWithDB.FuncInBD("BeautySalon_db", "Users", dataGridViewUsers, sql);
                     ClearFields();
@@ -92,6 +90,28 @@ namespace BeautySalon
             StatusCheck.Checked = false;
         }
 
+        private Boolean CheckSameness(Boolean ad) {
+            for (int i = 0; i < dataGridViewUsers.RowCount; i++)
+            {
+                if (ad)
+                {
+                    if (LoginField.Text == Convert.ToString(dataGridViewUsers.Rows[i].Cells[2].Value) )
+                    {
+                        MessageBox.Show("Данный логин уже существует.");
+                        return false;
+                    }
+                }
+                else {
+                    if (LoginField.Text == Convert.ToString(dataGridViewUsers.Rows[i].Cells[2].Value) && dataGridViewUsers.Rows[i] != dataGridViewUsers.SelectedRows[0])
+                    {
+                        MessageBox.Show("Данный логин уже существует.");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private Boolean CheckInaccuracies()
         {
             if (PasswordField.Text == "" || LoginField.Text == "" || NameField.Text == "")
@@ -102,6 +122,10 @@ namespace BeautySalon
             else if (PasswordField.Text.Length < 3 || LoginField.Text.Length < 3 || NameField.Text.Length < 3)
             {
                 MessageBox.Show("Минимальное количество символов,  в заполняемых полях, =3.");
+                return false;
+            }
+            else if (PasswordField.Text.Length < 8) {
+                MessageBox.Show("Минимальное количество символов пароля =8.");
                 return false;
             }
             else
@@ -119,7 +143,7 @@ namespace BeautySalon
                     MessageBox.Show("Редактируемая строка не выбрана.");
                   
                 }
-                else if (CheckInaccuracies())
+                else if (CheckInaccuracies() && CheckSameness(false))
                 {
 
                     OleDbCommand sql = new OleDbCommand("UPDATE Users SET user_name='" + NameField.Text +
@@ -173,6 +197,30 @@ namespace BeautySalon
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void GeneratePasswdB_Click(object sender, EventArgs e)
+        {
+            PasswordField.Text = GetPass();
+        }
+        public string GetPass()
+        {
+            Random rnd = new Random();
+            string Password = "";
+            string  abc = "qwertyuiopasdfghjklzxcvbnm";
+                    abc += abc.ToUpper();
+                    abc += "!@3$%&*_-";
+                    abc += "0123456789";
+            for (int i = 0; i < rnd.Next(8, 20); i++)
+            {
+                Password += abc[rnd.Next(abc.Length)];
+            }
+            return Password;
+        }
+
+        private void Users_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

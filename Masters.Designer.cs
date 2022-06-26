@@ -201,8 +201,10 @@
             this.JobTitleField.Location = new System.Drawing.Point(532, 109);
             this.JobTitleField.MaxLength = 255;
             this.JobTitleField.Name = "JobTitleField";
+            this.JobTitleField.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.JobTitleField.Size = new System.Drawing.Size(200, 27);
             this.JobTitleField.TabIndex = 6;
+            this.JobTitleField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.JobTitleField_KeyPress);
             // 
             // label4
             // 
@@ -270,6 +272,7 @@
             this.Name = "Masters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Мастера";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Masters_FormClosing);
             this.Load += new System.EventHandler(this.Masters_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaters)).EndInit();
             this.panel1.ResumeLayout(false);

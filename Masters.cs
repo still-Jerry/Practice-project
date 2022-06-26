@@ -63,8 +63,8 @@ namespace BeautySalon
                 if (CheckInaccuracies())
                 {
                     OleDbCommand sql = new OleDbCommand("INSERT INTO Master(id, surname, name_master, patronymic, was_born, job_title) VALUES (" +
-                             (Convert.ToInt32(dataGridViewMaters[0, dataGridViewMaters.RowCount - 1].Value) + 1) + ", '" + SurnameField.Text + "' , '" + NameField.Text + "', '" + PatronymicField.Text + "', '" +
-                               WasBornPicker.Value + "', '" + JobTitleField.Text + "')");
+                              (Module.GetNewIndex(dataGridViewMaters)) + ", '" + SurnameField.Text + "' , '" + NameField.Text + "', '" + PatronymicField.Text + "', '" +
+                               WasBornPicker.Value + "', '" + JobTitleField.Text + "');");
 
                     WorkWithDB.FuncInBD("BeautySalon_db", "Master", dataGridViewMaters, sql);
                     ClearFields();
@@ -193,6 +193,18 @@ namespace BeautySalon
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void JobTitleField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)) return;
+            else
+                e.Handled = true;
+        }
+
+        private void Masters_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
     }

@@ -66,5 +66,10 @@ namespace BeautySalon
 
             }
         }
+
+        private void MenuA_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -122,8 +122,8 @@ namespace BeautySalon
                 if (CheckInaccuracies())
                 {
                     OleDbCommand sql = new OleDbCommand("INSERT INTO Сlient(id, surname, name_client, patronymic, phone_number, was_born) VALUES (" +
-                             (Convert.ToInt32(dataGridViewClients[0, dataGridViewClients.RowCount - 1].Value) + 1) + ", '" + SurnameField.Text + "' , '" + NameField.Text + "', '" + PatronymicField.Text + "', '" +
-                               PhoneNumberField.Text + "', '" + WasBornPicker.Value.Date + "')");
+                              (Module.GetNewIndex(dataGridViewClients)) + ", '" + SurnameField.Text + "' , '" + NameField.Text + "', '" + PatronymicField.Text + "', '" +
+                               PhoneNumberField.Text + "', '" + WasBornPicker.Value.Date + "');");
 
                     WorkWithDB.FuncInBD("BeautySalon_db", "Сlient", dataGridViewClients, sql);
                     ClearFields();
@@ -210,6 +210,11 @@ namespace BeautySalon
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void Clients_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -270,6 +270,7 @@
             this.Name = "Clients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Клиенты";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Clients_FormClosing);
             this.Load += new System.EventHandler(this.Clients_Load);
             this.AdminSpace.ResumeLayout(false);
             this.AdminSpace.PerformLayout();

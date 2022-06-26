@@ -60,5 +60,10 @@ namespace BeautySalon
                 PasswordField.Text = "";
             }
         }
+
+        private void Authorization_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

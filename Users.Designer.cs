@@ -35,7 +35,7 @@
             this.DeleteB = new System.Windows.Forms.Button();
             this.AdminSpace = new System.Windows.Forms.GroupBox();
             this.StatusCheck = new System.Windows.Forms.CheckBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.GeneratePasswdB = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.LoginField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -113,7 +113,7 @@
             // 
             this.AdminSpace.BackColor = System.Drawing.SystemColors.Control;
             this.AdminSpace.Controls.Add(this.StatusCheck);
-            this.AdminSpace.Controls.Add(this.button5);
+            this.AdminSpace.Controls.Add(this.GeneratePasswdB);
             this.AdminSpace.Controls.Add(this.label4);
             this.AdminSpace.Controls.Add(this.LoginField);
             this.AdminSpace.Controls.Add(this.label3);
@@ -137,17 +137,18 @@
             this.StatusCheck.Text = "Статус администратора";
             this.StatusCheck.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // GeneratePasswdB
             // 
-            this.button5.BackColor = System.Drawing.Color.Gainsboro;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(523, 99);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(209, 31);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Сгенерировать пароль";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = false;
+            this.GeneratePasswdB.BackColor = System.Drawing.Color.Gainsboro;
+            this.GeneratePasswdB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GeneratePasswdB.Location = new System.Drawing.Point(523, 99);
+            this.GeneratePasswdB.Name = "GeneratePasswdB";
+            this.GeneratePasswdB.Size = new System.Drawing.Size(209, 31);
+            this.GeneratePasswdB.TabIndex = 11;
+            this.GeneratePasswdB.Text = "Сгенерировать пароль";
+            this.GeneratePasswdB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GeneratePasswdB.UseVisualStyleBackColor = false;
+            this.GeneratePasswdB.Click += new System.EventHandler(this.GeneratePasswdB_Click);
             // 
             // label4
             // 
@@ -243,6 +244,7 @@
             this.Name = "Users";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пользователи";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Users_FormClosing);
             this.Load += new System.EventHandler(this.Users_Load);
             this.panel1.ResumeLayout(false);
             this.AdminSpace.ResumeLayout(false);
@@ -268,6 +270,6 @@
         private System.Windows.Forms.TextBox NameField;
         private System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.CheckBox StatusCheck;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button GeneratePasswdB;
     }
 }

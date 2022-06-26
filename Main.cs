@@ -78,11 +78,11 @@ namespace BeautySalon
         {
             try
             {
-                if (CheckInaccuracies())
+                if (CheckInaccuracies() && CheckSameness(true))
                 {
                     OleDbCommand sql = new OleDbCommand("INSERT INTO RegistrationVisit(id, date_time, price, id_client, id_master) VALUES (" +
-                            (Convert.ToInt32(dataGridViewMain[0,dataGridViewMain.RowCount - 1].Value)+1) + ", '" + DateTimeVisitPicker.Value + "', " + Convert.ToInt32(PriceField.Text) + ", '" +
-                              ClientCb.Text + "', '" + MasterCb.Text + "')");
+                            (Module.GetNewIndex(dataGridViewMain)) + ", '" + DateTimeVisitPicker.Value + "', " + Convert.ToInt32(PriceField.Text) + ", '" +
+                              ClientCb.Text + "', '" + MasterCb.Text + "');");
 
                     WorkWithDB.FuncInBD("BeautySalon_db", "RegistrationVisit", dataGridViewMain, sql);
                     ClearFields();
@@ -99,10 +99,42 @@ namespace BeautySalon
         private void ClearFields()
         {
             DateTimeVisitPicker.Value = DateTime.Today;
-            DateTimeVisitPicker.Value = DateTime.Today;
             PriceField.Text = "";
             ClientCb.Text = "";
             MasterCb.Text ="";
+        }
+
+        private Boolean CheckSameness(Boolean ad)
+        {
+            for (int i = 0; i < dataGridViewMain.RowCount; i++)
+            {
+                if (ad)
+                {
+                    if ((DateTimeVisitPicker.Value.Date == Convert.ToDateTime(dataGridViewMain.Rows[i].Cells[1].Value).Date) &&
+                        Math.Abs(DateTimeVisitPicker.Value.Hour - Convert.ToDateTime(dataGridViewMain.Rows[i].Cells[1].Value).Hour) < 1)
+                    {
+                        if (Convert.ToString(dataGridViewMain.Rows[i].Cells[4].Value) == MasterCb.Text)
+                        {
+                            MessageBox.Show("Данное время записи занято.\nДиапазон записей у одного мастера должен составлеть не меннее 1 часа");
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    if (((DateTimeVisitPicker.Value.Date == Convert.ToDateTime(dataGridViewMain.Rows[i].Cells[1].Value).Date) &&
+                       Math.Abs(DateTimeVisitPicker.Value.Hour - Convert.ToDateTime(dataGridViewMain.Rows[i].Cells[1].Value).Hour) < 1)&&
+                       ( dataGridViewMain.Rows[i] != dataGridViewMain.SelectedRows[0]))
+                    {
+                        if (Convert.ToString(dataGridViewMain.Rows[i].Cells[4].Value) == MasterCb.Text)
+                        {
+                            MessageBox.Show("Данное время записи занято.");
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
         private Boolean CheckInaccuracies()
@@ -147,7 +179,7 @@ namespace BeautySalon
                     MessageBox.Show("Редактируемая строка не выбрана.");
                     
                 }
-                else if (CheckInaccuracies())
+                else if (CheckInaccuracies() && CheckSameness(false))
                 {
 
                     OleDbCommand sql = new OleDbCommand("UPDATE RegistrationVisit SET date_time='" + DateTimeVisitPicker.Value +
@@ -202,6 +234,11 @@ namespace BeautySalon
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
 
