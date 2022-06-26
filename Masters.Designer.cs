@@ -56,11 +56,10 @@
             this.dataGridViewMaters.AllowUserToDeleteRows = false;
             this.dataGridViewMaters.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMaters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMaters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaters.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMaters.Name = "dataGridViewMaters";
             this.dataGridViewMaters.ReadOnly = true;
-            this.dataGridViewMaters.Size = new System.Drawing.Size(738, 460);
+            this.dataGridViewMaters.Size = new System.Drawing.Size(738, 277);
             this.dataGridViewMaters.TabIndex = 0;
             this.dataGridViewMaters.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewMaters_MouseClick);
             // 
@@ -231,12 +230,12 @@
             // WasBornPicker
             // 
             this.WasBornPicker.Location = new System.Drawing.Point(6, 39);
-            this.WasBornPicker.MaxDate = new System.DateTime(2022, 6, 26, 0, 0, 0, 0);
+            this.WasBornPicker.MaxDate = new System.DateTime(2022, 6, 27, 0, 0, 0, 0);
             this.WasBornPicker.MinDate = new System.DateTime(1870, 1, 1, 0, 0, 0, 0);
             this.WasBornPicker.Name = "WasBornPicker";
             this.WasBornPicker.Size = new System.Drawing.Size(200, 27);
             this.WasBornPicker.TabIndex = 10;
-            this.WasBornPicker.Value = new System.DateTime(1890, 1, 1, 0, 0, 0, 0);
+            this.WasBornPicker.Value = new System.DateTime(2022, 6, 27, 0, 0, 0, 0);
             // 
             // AdminSpace
             // 
